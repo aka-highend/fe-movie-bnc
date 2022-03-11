@@ -6,7 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 
 import { Layout, Row, Col, Skeleton, message } from 'antd';
 
-import Card from '../components/CardComponent'
+import Card from '../components'
 
 
 const { Content } = Layout;

@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import { Layout, Row, Col, Skeleton } from 'antd';
 
-import Card from '../../components/CardComponent'
+import Card from '../../components'
 
 const { Content } = Layout;
 
