@@ -74,7 +74,7 @@ const Detail: NextPage = () => {
       setFavourite(false)
       listFavourite.splice(index, 1);
       localStorage.setItem('favourite', JSON.stringify(listFavourite))
-      message.success('success remove from my favourite');
+      message.success('removed from my favourite');
     } else {
       setFavourite(true)
       const newObj = {
@@ -86,7 +86,7 @@ const Detail: NextPage = () => {
       }
       listFavourite.push(newObj);
       localStorage.setItem('favourite', JSON.stringify(listFavourite))
-      message.success('success add to my favourite');
+      message.success('added to my favourite');
     }
   };
 

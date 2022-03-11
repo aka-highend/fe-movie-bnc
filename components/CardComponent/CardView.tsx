@@ -31,7 +31,7 @@ function CardView({
       setLike(false)
       listLike.splice(index, 1);
       localStorage.setItem('like', JSON.stringify(listLike))
-      message.success('success dislike content');
+      message.success('dislike content');
     } else {
       setLike(true)
       const newObj = {
@@ -43,7 +43,7 @@ function CardView({
       }
       listLike.push(newObj);
       localStorage.setItem('like', JSON.stringify(listLike))
-      message.success('success like content');
+      message.success('like content');
     }
   };
   
@@ -55,7 +55,7 @@ function CardView({
       listFavourite.splice(index, 1);
       localStorage.setItem('favourite', JSON.stringify(listFavourite))
       unFavouriteAction()
-      message.success('success remove from my favourite');
+      message.success('removed from my favourite');
     } else {
       setFavourite(true)
       const newObj = {
@@ -67,7 +67,7 @@ function CardView({
       }
       listFavourite.push(newObj);
       localStorage.setItem('favourite', JSON.stringify(listFavourite))
-      message.success('success add to my favourite');
+      message.success('added to my favourite');
     }
   };
 
@@ -96,6 +96,7 @@ function CardView({
       >
         <p className="font-18 mb-0p">{title}</p>
         <p className="font-12 mb-0p">{year}</p>
+        <span>{rating}{" "}</span>
         <Rate disabled defaultValue={rating} />
       </Card>
         <Card

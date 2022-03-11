@@ -1,6 +1,6 @@
 {
-  "locales": ["en-US", "id"],
-  "defaultLocale": "en-US",
+  "locales": ["en", "id"],
+  "defaultLocale": "en",
   "pages": {
     "*": ["common"],
     "/movie/[id]": ["movie"]

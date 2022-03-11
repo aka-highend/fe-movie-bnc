@@ -4,31 +4,12 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
 import '../styles/general.scss';
-import styled from 'styled-components';
 import { Layout, Menu, Switch } from 'antd';
 import useTranslation from "next-translate/useTranslation";
 
+import { StyledHeader, StyledSwitch, StyledFooter } from './app.style';
+
 const { Header, Footer } = Layout;
-
-const StyledLogo = styled.div`
-  float: left;
-  margin-right: 50px;
-  display: flex;
-`
-
-const StyledTitleLogo = styled.h2`
-  color: #ffffff;
-  margin-bottom: 0px;
-  font-size: 18px;
-`
-
-const StyledSwitch = styled.div`
-  float: right;
-  display: flex;
-  position: relative;
-  align-items: center;
-  height: 100%;
-`
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -50,7 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const changeLanguage = (event: boolean) => {
     if (event) {
-      router.push(router.asPath, router.asPath, { locale: 'en-US' })
+      router.push(router.asPath, router.asPath, { locale: 'en' })
     } else {
       router.push(router.asPath, router.asPath, { locale: 'id' })
     }
@@ -77,17 +58,25 @@ function MyApp({ Component, pageProps }: AppProps) {
           />
       </Head>
       <Layout>
-        <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-          <StyledSwitch>
-            <Switch checkedChildren="EN" unCheckedChildren="ID" defaultChecked onClick={(e) => { changeLanguage(e) }} />
-          </StyledSwitch>
-          <Menu theme="dark" mode="horizontal">
-            <Menu.Item onClick={() => router.push('/')} className={router.pathname == '/' ? 'ant-menu-item-selected':'ant-menu-item-unselected'} key="1">{t("common:header-movie-list")}</Menu.Item>
-            <Menu.Item onClick={() => router.push('/favourite')} className={router.pathname == '/favourite' ? 'ant-menu-item-selected':'ant-menu-item-unselected'} key="2">{t("common:header-favourite-list")}</Menu.Item>
-          </Menu>
-        </Header>
+        <StyledHeader>
+          <Header>
+            <StyledSwitch>
+              <Switch checkedChildren="EN" unCheckedChildren="ID" defaultChecked onClick={(e) => { changeLanguage(e) }} />
+            </StyledSwitch>
+            <Menu theme="dark" mode="horizontal">
+              <Menu.Item onClick={() => router.push('/')} className={router.pathname == '/' ? 'ant-menu-item-selected':'ant-menu-item-unselected'} key="1">
+                {t("common:header-movie-list")}
+              </Menu.Item>
+              <Menu.Item onClick={() => router.push('/favourite')} className={router.pathname == '/favourite' ? 'ant-menu-item-selected':'ant-menu-item-unselected'} key="2">
+                {t("common:header-favourite-list")}
+              </Menu.Item>
+            </Menu>
+          </Header>
+        </StyledHeader>
         <Component {...pageProps} />
-        <Footer style={{ textAlign: 'center' }}>BNC Movie ©{dateVar} Created by Web Developer</Footer>
+        <StyledFooter>
+          <Footer>BNC Movie ©{dateVar} Created by Web Developer</Footer>
+        </StyledFooter>
       </Layout>
     </>
   )
