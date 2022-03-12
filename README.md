@@ -1,6 +1,6 @@
 ## Overview
 
-Movie app consist of 3 pages, movie list, movie detail, and favorite list. Built using Next.js, Typescript, and styled-components with internationalization feature.
+Movie app consist of 3 pages, movie list, movie detail, and favorite list. Built using Next.js, Typescript, and styled-components with internationalization feature and responsive design implementation. Features available are: movie list, movie detail, favorite list, language toggle, and click like and favorite.
 
 
 ### Main Technologies
