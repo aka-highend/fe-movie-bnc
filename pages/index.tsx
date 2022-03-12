@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SyntheticEvent, useContext, useEffect, useState, useMemo } from 'react';
 import type { NextPage } from 'next';
-import { ContentProvider, ContentStore } from '../content/contentCtx';
+import { ContentProvider, ContentStore } from '../content/content-ctx';
 import useTranslation from "next-translate/useTranslation";
 
 import { Layout, Row, Col, Skeleton, message } from 'antd';

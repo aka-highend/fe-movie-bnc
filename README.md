@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Overview
 
-## Getting Started
+Movie app consist of 3 pages, movie list, movie detail, and favorite list. Built using Next.js, Typescript, and styled-components with internationalization feature.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
+### Main Technologies
+
+* [Next.js](https://nextjs.org/) - React framework with features like server-side rendering and generating static pages.
+* [Axios](https://github.com/axios/axios) - Library for API consumption.
+* [Antd](https://ant.design/) - An UI design language and React UI library to build user interface.
+* [i18next](https://www.i18next.com/) and [React i18next](https://github.com/i18next/react-i18next) - Internationalization framework.
+* [Styled-Components](https://styled-components.com/) - A library which allows to implement and write CSS in JavaScript file.
+* [Typescript](https://www.typescriptlang.org/) - Strongly typed language which is the superset of JavaScript.
+
+
+### Installing
+
+You can use npm to install:
+
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run it using:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+npm run dev
+```
+Then open in the browser by entering this url http://localhost:3000/
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Structure
+```
+.
+    ├── components
+    │   ├── card             
+    │   │   ├── card-view.tsx       # component on movie list page, where item 'favourite' stored in local storage if user click 
+    │   ├── index.ts            
+    ├── content                     # content for state management in movie list
+    │   ├── content-ctx.tsx         
+    ├── locales                     # store language content for internationalization 
+    │   ├── en                      # english
+    │   │   ├── common.json
+    │   │   ├── movie.json
+    │   ├── id                      # indonesia
+    │   │   ├── common.json
+    │   │   ├── movie.json  
+    ├── pages
+    │   ├── favourite               # favorite page, implementing styled-component
+    │   │   ├── favourite.style.tsx
+    │   │   ├── index.tsx
+    │   ├── movie-detail            # movie-detail page, implementing styled-component
+    │   │   ├── [id].tsx
+    │   │   ├── movie-detail.style.tsx
+    │   ├── _app.tsx                # maintain header, language toggle, footer, and main page component
+    │   ├── app.style.tsx           
+    │   ├── index.tsx               # movie list page, logic implementation of API consumption
+    ├── public 
+    ├── styles                      # general styles used accross pages
+    │   ├── _spacing.scss
+    │   ├── _typography.scss  
+    │   ├── _variables.scss  
+    │   ├── general.scss  
+```

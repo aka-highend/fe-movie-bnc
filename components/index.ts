@@ -1,1 +1,1 @@
-export { default } from './CardComponent/CardView'
+export { default } from './card/card-view'
