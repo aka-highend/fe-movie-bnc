@@ -3,6 +3,7 @@
   "defaultLocale": "en",
   "pages": {
     "*": ["common"],
-    "/movie-detail/[id]": ["movie"]
+    "/movie-detail/[id]": ["movie"],
+    "/favourite": ["movie"]
   }
 }

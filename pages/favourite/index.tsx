@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Image from 'next/image';
+import useTranslation from "next-translate/useTranslation";
 
 import { Layout, Row, Col, Skeleton } from 'antd';
 
@@ -21,6 +22,7 @@ const Favourite: NextPage = () => {
 
   const [getContentFavourite, setContentFavourite] = useState<ItemData[] | []>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { t } = useTranslation();
 
   const refreshData = () => {
     setIsLoading(true);
@@ -61,7 +63,7 @@ const Favourite: NextPage = () => {
             {!isLoading && getContentFavourite.length == 0 && <Row gutter={[16, 24]}>
               <Col className="gutter-row text-center" xs={24} sm={24} md={24} lg={24} xl={24}>
                 <Image src="/nodata.png" alt="nodata" width="400" height="400" />
-                <h1>No Data Available</h1>
+                <h1>{t("movie:no-data")}</h1>
               </Col>
             </Row>}
             {isLoading && <Row gutter={[16, 24]}>

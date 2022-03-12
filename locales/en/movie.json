@@ -6,5 +6,6 @@
   "cast": "Cast",
   "release": "Release",
   "image-preview": "Image preview",
-  "introductory": "This the movie title which is used to be displayed in this detail page."
+  "introductory": "This the movie title which is used to be displayed in this detail page.",
+  "no-data": "No data available"
 }
