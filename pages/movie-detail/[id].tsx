@@ -7,7 +7,7 @@ import useTranslation from "next-translate/useTranslation";
 import { Layout, Row, Col, Skeleton, Rate, Button, message, Modal } from 'antd';
 import { HeartOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 
-import { MovieContentStyled, MovieLayoutBackgroundStyled } from './movie-detail.style';
+import { MovieContentStyled, MovieLayoutBackgroundStyled, ImgMdColStyled, MovieContentMdColStyled } from './movie-detail.style';
 
 const { Content } = Layout;
 
@@ -145,11 +145,15 @@ const Detail: NextPage = () => {
                     <p>{t("movie:desc")}</p>
                 </Col>
             </Row>
-            {!isLoading && <Row gutter={[16, 24]}>
-                <Col className="gutter-row" xs={24} sm={24} md={9} lg={9} xl={9}>
-                  <img className="cursor-pointer" onClick={() => { showModal() }} width="400" height="400" alt={getDetailContent.title} src={getDetailContent.imageUrl} />
-                </Col>
-                <Col className="gutter-row" xs={24} sm={24} md={15} lg={15} xl={15}>
+            {!isLoading && 
+              <Row gutter={[16, 24]}>
+                <ImgMdColStyled>
+                  <Col className="gutter-row" xs={24} sm={24} lg={9} xl={9}>
+                    <img className="cursor-pointer" onClick={() => { showModal() }} width="400" height="400" alt={getDetailContent.title} src={getDetailContent.imageUrl} />
+                  </Col>
+                </ImgMdColStyled>
+                <MovieContentMdColStyled>
+                  <Col className="gutter-row" xs={24} sm={24} lg={15} xl={15}>
                     <h1> {getDetailContent.title} </h1>
                     <Rate disabled defaultValue={getDetailContent.rating} />
                     <p>{t("movie:genre")} : {getDetailContent.genre}</p>
@@ -159,8 +163,10 @@ const Detail: NextPage = () => {
                     <p>{t("movie:introductory")}</p>
                     <p>{getDetailContent.desc}</p>
                     <Button size="large" onClick={() => { actionFavourite(getDetailContent.id, getDetailContent.title, getDetailContent.year, getDetailContent.rating, getDetailContent.imageUrl) }} shape="circle" className={isFavourite ? 'active-color':''} icon={<HeartOutlined />} />
-                </Col>
-            </Row>}
+                  </Col>
+                </MovieContentMdColStyled>
+              </Row>
+            }
               {isLoading && <Row gutter={[16, 24]}>
                 <Col className="gutter-row" xs={24} sm={24} md={24} lg={24} xl={24}>
                   <Skeleton className="w-100 skeleton-card" active/>
