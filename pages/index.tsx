@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { SyntheticEvent, useContext, useEffect, useState, useMemo } from 'react';
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
 import { ContentProvider, ContentStore } from '../content/contentCtx';
 import useTranslation from "next-translate/useTranslation";
 
 import { Layout, Row, Col, Skeleton, message } from 'antd';
 
-import Card from '../components'
+import Card from '../components';
+import { StyledContent, StyledLayoutBackground } from './app.style';
 
 
 const { Content } = Layout;
@@ -73,37 +74,41 @@ const Home: NextPage = () => {
   
   
   return (
-    <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
-      <div className="site-layout-background" style={{ padding: 24, height: '85vh', overflow: 'scroll' }} onScroll={handleScroll}>
-        <Row gutter={[16, 24]}>
-            <Col className="gutter-row" xs={24} sm={24} md={24} lg={24} xl={24}>
-                <h1>{t("common:title")}</h1>
-                <p>{t("common:desc")}</p>
-            </Col>
-        </Row>
-        <Row gutter={[16, 24]}>
-          {dataList.map((item, i) => (
-            <Col key={i} className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-              <Card id={item.id} title={item.title} year={item.year} rating={item.rating} imageUrl={item.imageUrl} unFavouriteAction={() => { return false }} />
-            </Col>
-          ))}
-        </Row>
-        {isLoading && <Row gutter={[16, 24]}>
-            <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-              <Skeleton className="w-100 skeleton-card" active/>
-            </Col>
-            <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-              <Skeleton active/>
-            </Col>
-            <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-              <Skeleton active/>
-            </Col>
-            <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-              <Skeleton active/>
-            </Col>
-        </Row>}
-      </div>
-    </Content>
+    <StyledContent>
+      <Content className="site-layout">
+        <StyledLayoutBackground>
+          <div className="site-layout-background" onScroll={handleScroll}>
+            <Row gutter={[16, 24]}>
+                <Col className="gutter-row" xs={24} sm={24} md={24} lg={24} xl={24}>
+                    <h1>{t("common:title")}</h1>
+                    <p>{t("common:desc")}</p>
+                </Col>
+            </Row>
+            <Row gutter={[16, 24]}>
+              {dataList.map((item, i) => (
+                <Col key={i} className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                  <Card id={item.id} title={item.title} year={item.year} rating={item.rating} imageUrl={item.imageUrl} unFavouriteAction={() => { return false }} />
+                </Col>
+              ))}
+            </Row>
+            {isLoading && <Row gutter={[16, 24]}>
+                <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                  <Skeleton className="w-100 skeleton-card" active/>
+                </Col>
+                <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                  <Skeleton active/>
+                </Col>
+                <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                  <Skeleton active/>
+                </Col>
+                <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                  <Skeleton active/>
+                </Col>
+            </Row>}
+          </div>
+        </StyledLayoutBackground>
+      </Content>
+    </StyledContent>
   )
 }
 

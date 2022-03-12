@@ -17,3 +17,14 @@ export const StyledHeader = styled.header`
 export const StyledFooter = styled.footer`
   text-align: center;
 `
+
+export const StyledContent = styled.main`
+  padding: 0px 50px;
+  margin-top: 64px;
+`
+
+export const StyledLayoutBackground = styled.div`
+  padding: 24px;
+  height: 85vh;
+  overflow: scroll;
+`

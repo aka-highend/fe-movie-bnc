@@ -7,6 +7,8 @@ import useTranslation from "next-translate/useTranslation";
 import { Layout, Row, Col, Skeleton, Rate, Button, message, Modal } from 'antd';
 import { HeartOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 
+import { MovieContentStyled, MovieLayoutBackgroundStyled } from './movie.style';
+
 const { Content } = Layout;
 
 
@@ -133,39 +135,43 @@ const Detail: NextPage = () => {
 
   
   return (
-    <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
-      <div className="site-layout-background" style={{ padding: 24, height: '85vh', overflow: 'scroll' }}>
-        <Row gutter={[16, 24]}>
-            <Col className="gutter-row" xs={24} sm={24} md={24} lg={24} xl={24}>
-                <h1><ArrowLeftOutlined className="cursor-pointer" onClick={() => { router.push('/') }} /> {t("movie:title")} </h1>
-                <p>{t("movie:desc")}</p>
-            </Col>
-        </Row>
-        {!isLoading && <Row gutter={[16, 24]}>
-            <Col className="gutter-row" xs={24} sm={24} md={9} lg={9} xl={9}>
-              <img className="cursor-pointer" onClick={() => { showModal() }} width="400" height="400" alt={getDetailContent.title} src={getDetailContent.imageUrl} />
-            </Col>
-            <Col className="gutter-row" xs={24} sm={24} md={15} lg={15} xl={15}>
-                <h1> {getDetailContent.title} </h1>
-                <Rate disabled defaultValue={getDetailContent.rating} />
-                <p>{t("movie:genre")} : {getDetailContent.genre}</p>
-                <p>{t("movie:duration")} : {getDetailContent.duration}</p>
-                <p>{t("movie:cast")} : {setDataToString(getDetailContent.starring)}</p>
-                <p>{t("movie:release")} : {getDetailContent.releaseDate}</p>
-                <p>{getDetailContent.desc}</p>
-                <Button size="large" onClick={() => { actionFavourite(getDetailContent.id, getDetailContent.title, getDetailContent.year, getDetailContent.rating, getDetailContent.imageUrl) }} shape="circle" className={isFavourite ? 'active-color':''} icon={<HeartOutlined />} />
-            </Col>
-        </Row>}
-          {isLoading && <Row gutter={[16, 24]}>
-            <Col className="gutter-row" xs={24} sm={24} md={24} lg={24} xl={24}>
-              <Skeleton className="w-100 skeleton-card" active/>
-            </Col>
-        </Row>}
-      </div>
-      <Modal title={t("movie:image-preview")} visible={isModalVisible} footer={null} onOk={handleOk} onCancel={handleCancel}>
-        <img className="full-image" onClick={() => { showModal() }} alt={getDetailContent.title} src={getDetailContent.imageLargeUrl} />
-      </Modal>
-    </Content>
+    <MovieContentStyled>
+      <Content className="site-layout">
+        <MovieLayoutBackgroundStyled>
+          <div className="site-layout-background">
+            <Row gutter={[16, 24]}>
+                <Col className="gutter-row" xs={24} sm={24} md={24} lg={24} xl={24}>
+                    <h1><ArrowLeftOutlined className="cursor-pointer" onClick={() => { router.push('/') }} /> {t("movie:title")} </h1>
+                    <p>{t("movie:desc")}</p>
+                </Col>
+            </Row>
+            {!isLoading && <Row gutter={[16, 24]}>
+                <Col className="gutter-row" xs={24} sm={24} md={9} lg={9} xl={9}>
+                  <img className="cursor-pointer" onClick={() => { showModal() }} width="400" height="400" alt={getDetailContent.title} src={getDetailContent.imageUrl} />
+                </Col>
+                <Col className="gutter-row" xs={24} sm={24} md={15} lg={15} xl={15}>
+                    <h1> {getDetailContent.title} </h1>
+                    <Rate disabled defaultValue={getDetailContent.rating} />
+                    <p>{t("movie:genre")} : {getDetailContent.genre}</p>
+                    <p>{t("movie:duration")} : {getDetailContent.duration}</p>
+                    <p>{t("movie:cast")} : {setDataToString(getDetailContent.starring)}</p>
+                    <p>{t("movie:release")} : {getDetailContent.releaseDate}</p>
+                    <p>{getDetailContent.desc}</p>
+                    <Button size="large" onClick={() => { actionFavourite(getDetailContent.id, getDetailContent.title, getDetailContent.year, getDetailContent.rating, getDetailContent.imageUrl) }} shape="circle" className={isFavourite ? 'active-color':''} icon={<HeartOutlined />} />
+                </Col>
+            </Row>}
+              {isLoading && <Row gutter={[16, 24]}>
+                <Col className="gutter-row" xs={24} sm={24} md={24} lg={24} xl={24}>
+                  <Skeleton className="w-100 skeleton-card" active/>
+                </Col>
+            </Row>}
+          </div>
+        </MovieLayoutBackgroundStyled>
+        <Modal title={t("movie:image-preview")} visible={isModalVisible} footer={null} onOk={handleOk} onCancel={handleCancel}>
+          <img className="full-image" onClick={() => { showModal() }} alt={getDetailContent.title} src={getDetailContent.imageLargeUrl} />
+        </Modal>
+      </Content>
+    </MovieContentStyled>
   )
 }
 
