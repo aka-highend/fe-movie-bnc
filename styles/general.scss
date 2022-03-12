@@ -33,9 +33,13 @@ html, body{
     width: 100%;
 }
 
+.ant-layout-header {
+    background: #ffffff !important;
+}
+
 .ant-menu-item-unselected {
     background-color: transparent !important;
-    color: rgba(255, 255, 255, 0.65) !important;
+    color: rgba(0, 0, 0, 0.65) !important;
 }
 
 .text-center {

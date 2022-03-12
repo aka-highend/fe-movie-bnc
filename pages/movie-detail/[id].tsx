@@ -7,7 +7,7 @@ import useTranslation from "next-translate/useTranslation";
 import { Layout, Row, Col, Skeleton, Rate, Button, message, Modal } from 'antd';
 import { HeartOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 
-import { MovieContentStyled, MovieLayoutBackgroundStyled } from './movie.style';
+import { MovieContentStyled, MovieLayoutBackgroundStyled } from './movie-detail.style';
 
 const { Content } = Layout;
 
@@ -156,6 +156,7 @@ const Detail: NextPage = () => {
                     <p>{t("movie:duration")} : {getDetailContent.duration}</p>
                     <p>{t("movie:cast")} : {setDataToString(getDetailContent.starring)}</p>
                     <p>{t("movie:release")} : {getDetailContent.releaseDate}</p>
+                    <p>{t("movie:introductory")}</p>
                     <p>{getDetailContent.desc}</p>
                     <Button size="large" onClick={() => { actionFavourite(getDetailContent.id, getDetailContent.title, getDetailContent.year, getDetailContent.rating, getDetailContent.imageUrl) }} shape="circle" className={isFavourite ? 'active-color':''} icon={<HeartOutlined />} />
                 </Col>

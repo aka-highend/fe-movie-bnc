@@ -28,3 +28,17 @@ export const StyledLayoutBackground = styled.div`
   height: 85vh;
   overflow: scroll;
 `
+
+export const StyledTitleLayout = styled.h2`
+  text-align: center;
+`
+
+export const StyledDescLayout = styled.h3`
+  text-align: center;
+`
+
+export const StyledHeaderMenu = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+`

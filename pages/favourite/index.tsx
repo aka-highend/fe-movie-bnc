@@ -60,22 +60,23 @@ const Favourite: NextPage = () => {
             </Row>}
             {!isLoading && getContentFavourite.length == 0 && <Row gutter={[16, 24]}>
               <Col className="gutter-row text-center" xs={24} sm={24} md={24} lg={24} xl={24}>
-                <Image src="/nodata.jpg" alt="nodata" width="400" height="400" />
+                <Image src="/nodata.png" alt="nodata" width="400" height="400" />
+                <h1>No Data Available</h1>
               </Col>
             </Row>}
             {isLoading && <Row gutter={[16, 24]}>
-                <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-                  <Skeleton className="w-100 skeleton-card" active/>
-                </Col>
-                <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-                  <Skeleton active/>
-                </Col>
-                <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-                  <Skeleton active/>
-                </Col>
-                <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-                  <Skeleton active/>
-                </Col>
+              <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                <Skeleton className="w-100 skeleton-card" active/>
+              </Col>
+              <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                <Skeleton active/>
+              </Col>
+              <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                <Skeleton active/>
+              </Col>
+              <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                <Skeleton active/>
+              </Col>
             </Row>}
           </div>
         </LayoutBackgroundStyled>

@@ -3,6 +3,6 @@
   "defaultLocale": "en",
   "pages": {
     "*": ["common"],
-    "/movie/[id]": ["movie"]
+    "/movie-detail/[id]": ["movie"]
   }
 }

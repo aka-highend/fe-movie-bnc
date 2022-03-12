@@ -7,14 +7,13 @@ import useTranslation from "next-translate/useTranslation";
 import { Layout, Row, Col, Skeleton, message } from 'antd';
 
 import Card from '../components';
-import { StyledContent, StyledLayoutBackground } from './app.style';
-
+import { StyledContent, StyledLayoutBackground, StyledTitleLayout, StyledDescLayout } from './app.style';
 
 const { Content } = Layout;
 
 export type HandleScrollProps = SyntheticEvent<HTMLDivElement>
 
-const PER_PAGE = 10;
+const PER_PAGE = 30;
 
 
 const Home: NextPage = () => {
@@ -79,10 +78,14 @@ const Home: NextPage = () => {
         <StyledLayoutBackground>
           <div className="site-layout-background" onScroll={handleScroll}>
             <Row gutter={[16, 24]}>
-                <Col className="gutter-row" xs={24} sm={24} md={24} lg={24} xl={24}>
-                    <h1>{t("common:title")}</h1>
-                    <p>{t("common:desc")}</p>
-                </Col>
+              <Col className="gutter-row" xs={24} sm={24} md={24} lg={24} xl={24}>
+                <StyledTitleLayout>
+                  <h2>{t("common:title")}</h2>
+                </StyledTitleLayout>
+                <StyledDescLayout>
+                  <h3>{t("common:desc")}</h3>
+                </StyledDescLayout>
+              </Col>
             </Row>
             <Row gutter={[16, 24]}>
               {dataList.map((item, i) => (
@@ -91,20 +94,66 @@ const Home: NextPage = () => {
                 </Col>
               ))}
             </Row>
-            {isLoading && <Row gutter={[16, 24]}>
-                <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-                  <Skeleton className="w-100 skeleton-card" active/>
-                </Col>
-                <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-                  <Skeleton active/>
-                </Col>
-                <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-                  <Skeleton active/>
-                </Col>
-                <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
-                  <Skeleton active/>
-                </Col>
-            </Row>}
+            {isLoading && 
+              <>
+                <Row gutter={[16, 24]}>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton className="w-100 skeleton-card" active/>
+                  </Col>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton active/>
+                  </Col>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton active/>
+                  </Col>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton active/>
+                  </Col>
+                </Row>
+                <Row gutter={[16, 24]}>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton className="w-100 skeleton-card" active/>
+                  </Col>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton active/>
+                  </Col>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton active/>
+                  </Col>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton active/>
+                  </Col>
+                </Row>
+                <Row gutter={[16, 24]}>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton className="w-100 skeleton-card" active/>
+                  </Col>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton active/>
+                  </Col>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton active/>
+                  </Col>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton active/>
+                  </Col>
+                </Row>
+                <Row gutter={[16, 24]}>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton className="w-100 skeleton-card" active/>
+                  </Col>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton active/>
+                  </Col>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton active/>
+                  </Col>
+                  <Col className="gutter-row" xs={24} sm={12} md={12} lg={6} xl={6}>
+                    <Skeleton active/>
+                  </Col>
+                </Row>
+              </>
+            }
           </div>
         </StyledLayoutBackground>
       </Content>

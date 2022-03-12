@@ -55,7 +55,7 @@ function CardView({
       listFavourite.splice(index, 1);
       localStorage.setItem('favourite', JSON.stringify(listFavourite))
       unFavouriteAction()
-      message.success('removed from my favourite');
+      message.success('removed from my favourite list');
     } else {
       setFavourite(true)
       const newObj = {
@@ -67,7 +67,7 @@ function CardView({
       }
       listFavourite.push(newObj);
       localStorage.setItem('favourite', JSON.stringify(listFavourite))
-      message.success('added to my favourite');
+      message.success('added to my favourite list');
     }
   };
 
@@ -90,7 +90,7 @@ function CardView({
     <Fragment>
       <Card 
         id="card"
-        onClick={() => { router.push('/movie/'+id) } }
+        onClick={() => { router.push('/movie-detail/'+id) } }
         hoverable
         cover={<img className="cover-img-card" alt={title} src={imageUrl} />}
       >
