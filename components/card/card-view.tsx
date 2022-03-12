@@ -25,7 +25,7 @@ function CardView({
   const router = useRouter()
 
   const actionLike = (id:string) => {
-    const listLike: any[] = JSON.parse(localStorage.getItem('like'))
+    const listLike: any[] = JSON.parse(localStorage.getItem('like') || '{}')
     const index = listLike.findIndex( (item: { id: string; }) => item.id == id )
     if (index != -1) {
       setLike(false)
@@ -48,7 +48,7 @@ function CardView({
   };
   
   const actionFavourite = (id:string) => {
-    const listFavourite: any[] = JSON.parse(localStorage.getItem('favourite'))
+    const listFavourite: any[] = JSON.parse(localStorage.getItem('favourite') || '{}')
     const index = listFavourite.findIndex( (item: { id: string; }) => item.id == id )
     if (index != -1) {
       setFavourite(false)
@@ -72,8 +72,8 @@ function CardView({
   };
 
   useEffect(() => {
-    const listLike = JSON.parse(localStorage.getItem('like'))
-    const listFavourite = JSON.parse(localStorage.getItem('favourite'))
+    const listLike = JSON.parse(localStorage.getItem('like') || '{}')
+    const listFavourite = JSON.parse(localStorage.getItem('favourite') || '{}')
     const likeIndex = listLike.findIndex( (item: { id: string; }) => item.id == id );
     const favouriteIndex = listFavourite.findIndex( (item: { id: string; }) => item.id == id );
 

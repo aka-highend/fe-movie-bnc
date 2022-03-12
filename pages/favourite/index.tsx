@@ -24,7 +24,7 @@ const Favourite: NextPage = () => {
 
   const refreshData = () => {
     setIsLoading(true);
-    setContentFavourite(JSON.parse(localStorage.getItem('favourite')))
+    setContentFavourite(JSON.parse(localStorage.getItem('favourite') || '{}'))
     setTimeout(function(){ setIsLoading(false); }, 500);
   };
 
@@ -39,7 +39,7 @@ const Favourite: NextPage = () => {
       const newArr: any[] = []
       localStorage.setItem('favourite', JSON.stringify(newArr));
     } else {
-      setContentFavourite(JSON.parse(localStorage.getItem('favourite')))
+      setContentFavourite(JSON.parse(localStorage.getItem('favourite') || '{}'))
     }
 
     setIsLoading(false);

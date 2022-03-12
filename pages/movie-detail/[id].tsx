@@ -47,7 +47,7 @@ const Detail: NextPage = () => {
   };
 
   const actionLike = (id:string, title: string, year: number, rating: number, imageUrl: string) => {
-    const listLike: any[] = JSON.parse(localStorage.getItem('like'))
+    const listLike: any[] = JSON.parse(localStorage.getItem('like') || '{}')
     const index = listLike.findIndex( (item: { id: string; }) => item.id == id )
     if (index != -1) {
       setLike(false)
@@ -70,7 +70,7 @@ const Detail: NextPage = () => {
   };
   
   const actionFavourite = (id:string, title: string, year: number, rating: number, imageUrl: string) => {
-    const listFavourite: any[] = JSON.parse(localStorage.getItem('favourite'))
+    const listFavourite: any[] = JSON.parse(localStorage.getItem('favourite') || '{}')
     const index = listFavourite.findIndex( (item: { id: string; }) => item.id == id )
     if (index != -1) {
       setFavourite(false)
@@ -107,8 +107,8 @@ const Detail: NextPage = () => {
     setIsLoading(true);
     axios.get('https://private-2fff44-bncfetest.apiary-mock.com/movies/'+router.query.id).then((res) => {
       const resData = res.data.data
-      const listLike = JSON.parse(localStorage.getItem('like'))
-      const listFavourite = JSON.parse(localStorage.getItem('favourite'))
+      const listLike = JSON.parse(localStorage.getItem('like') || '{}')
+      const listFavourite = JSON.parse(localStorage.getItem('favourite') || '{}')
       const likeIndex = listLike.findIndex( (item: { id: string; }) => item.id == resData.id);
       const favouriteIndex = listFavourite.findIndex( (item: { id: string; }) => item.id == resData.id );
 
